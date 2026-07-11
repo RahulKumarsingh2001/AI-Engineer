@@ -1,4 +1,6 @@
 ## Day 2
+### Your first LLM call and understanding response.
+
 ### venv (virtual envorment)
 
 ```
@@ -11,13 +13,13 @@ version all the things those are not affect to outside the virtual env
 
 ### LLM Calls (Large language mode)
 
-how to call LLM ?hpwho
+how to call LLM ?
 
 ```
-1) we need a API Key.
-2) make a client (for eg you used grok then make a one client those intract with grook)
+1) we need a API Key. (make your own api key on grok website :- https://console.groq.com/keys)
+2) make a client (we used groq as a server so we make a one client they interact with a grok)
 3) choose a models
-4) messages: In this two things are there 
+4) messages: In message two important things are there 
 
             1. role: In api call 3 types of role are there
                         i) User role: (message that was sended to GPT from your side.)
@@ -25,16 +27,17 @@ how to call LLM ?hpwho
                         iii) System role: (you can assing any role like "give all the answer in one words")
                         
             2. content
+             
 4) Response: In response many types of response are there but we deals with 2 important things
-            1. choices: this is the main answer (Array or answers)
-            2. Usage: for handling your message how much Token is used.bb            
+            1. choices: this is the main answer (Array of answers)
+            2. Usage: for handling your message how much Token is used.      
 ```
 
 ## Day 3
 ### System role and Temprature
 
 ```
-System role: system role tell a LLM. (whats the relation between you and system in that chat)
+System role: system role tell a LLM. (whats the relation between you and system in this chat)
 
 for example: role -> system
              content -> you are my gf
@@ -49,7 +52,7 @@ In gork ai you can pass {0 to 2} temps (0,1,2)
 t=0         t=2
 0 : safe    2: Risk taker(creative)
 
-LLM are predection machine
+LLM are predection machine. not a truth telling machine.
 ```
 
 
@@ -64,6 +67,7 @@ LLM {computer program} they only understand 0/1
 eg: you give some query "Hello" -> it converted your query into a number and then it start processing
     give a output as a number -> and it convert into your language.
 
+- how to convert letter in number??
 
 few method are there like 
 1) letter to number (worst method)
@@ -75,14 +79,17 @@ few method are there like
 
 Token -> Comman reusable words
 
-They search all the word aver a internet and they take a common word and make a one token
+they scan all the word those are present in internet and take a common words and treate like a tokens.
 
 For eg:- "The" -> Token   "rahul" -> not a token, so they break "rahul" into sub token.
          "In" -> Token.   "Banglore" -> Token
          "name" -> Token
 
 
-Input Token + Output Token = Total token
+You write some prompt and it will break into a token and that Token converted into a number and send to a GPT
+GPT generate some answer and that answer also break into a Token 
+
+for eg:- Input Token(100 token) + Output Token(200 token) = Total token cost(300 token)
 
 Input Token -> Prompt token
 Output Token -> completation Token
