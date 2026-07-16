@@ -122,3 +122,27 @@ JSON (Javascript Object Notations)
 
 for store any data in JSON formate we can take a help of pydantic
 ```
+
+
+
+
+
+## Day 6
+### Mini Project
+
+```
+LLM Resume Evaluator
+
+class for Job_D
+   1) role
+   2) required skills
+   3) preffered skills
+   4) Min experience
+   5) Eductional requirment
+   6) Responsibilities
+
+write a system prompt- we can tell to a llm your are expert hr assistance take a {Job_D}
+                       i will provide job description you work is based on Job_D you can 
+                       give all the information to a job description.
+Write a user prompt
+```
