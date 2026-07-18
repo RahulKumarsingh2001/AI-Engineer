@@ -146,3 +146,58 @@ write a system prompt- we can tell to a llm your are expert hr assistance take a
                        give all the information to a job description.
 Write a user prompt
 ```
+
+
+
+## week 2
+## Day 7
+### Prompt Engineering
+
+```
+- Why we need Prompt Engineering?
+LLM always give different answer. so when we are used in a production level
+we don't need different answer so for stable the LLM solution we used prompt
+engineering.
+
+1> for stable the answer
+2> You can limit your chatbot what types of question they can response back 
+
+
+- Bad Prompt
+This is a user complain: My laptop is not working handle this.
+
+
+For write a good prompt we can follow 6 steps
+
+1> role
+2> Task
+3> constraints
+4> output formate
+5> Zero/ one Sort
+6> Fallback
+
+
+1> Role:- who are you?
+          your role should be domain or responsibility related?
+
+          eg:- you are seniour engineer responsible for reviewing a code.
+
+
+2> Task:- what you should do?
+          eg:- classification the issue
+
+3> Constraints :- set a boundry
+                   eg:- issue should be only 3 types 
+                        1) Billing.  2) technical.  3) return. 
+
+4> output formate :- what types of response we needed
+                     eg:- one word answer
+
+5> Zero/ one Sort/ Few sort:- you can gives a example to a LLM to understand
+                    if(you provide example to understand llm how they can do the task) -> one sort
+                    if(you not give any example) -> then zero sort               
+                    if(you give more they one example to understand llm how they respond back) -> few sort
+
+6> fallback :- if unrelated query are asking then they not give any answer
+
+```
