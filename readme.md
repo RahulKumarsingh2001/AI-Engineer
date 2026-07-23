@@ -201,3 +201,60 @@ For write a good prompt we can follow 6 steps
 6> fallback :- if unrelated query are asking then they not give any answer
 
 ```
+
+
+## Day 7
+### Re Act (Reasoning + Action)
+
+```
+With help of training data you can't know the current news or anything because that data are one 
+type of historical data. 
+
+so solving this types of problem we make tools under a chatGPT
+like we can give a access to different APIs to get a current data
+eg:- we can give a current weather apis to a GPT (with help of this they can display the current wether reports)
+
+chatGPT have access: [Historical data + Tools]
+
+-- Then what the problem will occur and how we can solve the problems??
+
+1) chatGPT have many tools :- how we can know this tools is used for solving this problem
+                              (This is main problem which tools they can used, and when this tools will used
+                              and how much they can used)
+                              
+
+-- For Solving this problem ReAct (Reasoning + Action) comes into the pitcher
+
+LLM see your prompts
+   eg: <I want to buy a iphone7, I have ₹5,000. If i buy it. then how much money will have i left with?>
+
+      (i) They need to check the apple price list -> whats the price of iphone7 -> 2,000
+      (ii) store the user price ammount data -> user have 5,000 
+      (iii) They used calculator tools for geeting the result -> 5,000 - 2,000 = 3,000
+
+
+So, LLM reasoning your prompt and check 
+   1) they need whats types of tools and get a answer
+   2) and take that answer and used different tool and finds the answer
+   3) ...This is the continue loop where they used many tools for geetings a main results
+
+   That's we call ReAct Loop ((Reasoning + Action))
+
+   You just give a PROMPT
+   LLM read your PROMPT and they decide how and which tools they used for geeting the results
+
+
+So, if we want to making a Agents then it important to used tools. because only based on LLM we can't 
+able to build Agents.
+
+
+
+1> First we need to gives a tools (simple python program)
+
+2> Then you write a System prompt (dicide your works                                     
+                                   for that work which avaliable tools is usefull         
+                                   if you find out then execute the tool                 
+                                   and those observation/solution will come              
+                                   then reused the solution for geeting the main result)  
+
+```
