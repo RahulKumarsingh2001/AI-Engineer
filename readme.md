@@ -258,3 +258,51 @@ able to build Agents.
                                    then reused the solution for geeting the main result)  
 
 ```
+
+
+
+## Day 8
+### Prompt Chaining
+
+```
+We write a prompt --> give to a LLM --> they provide us output.
+
+When we are in production then your task is very complex
+so, we have two method for assing a task
+1) you can explain all the complete task in one single prompt and give to a LLM
+    [prompt] --> [LLM] --> [sol]
+2) you can divide your prompt in different different sub prompt and give to there specific LLM 
+    (i) query
+        <i> [prompt1] --> [LLM] --> [solution1] 
+        <ii> [prompt2] --> [LLM] --> [solution2]  {solution1 help to prompt2 to find a answer}
+        .
+        .
+
+In this you basically divide prompt into different sub prompt and all sub prompt have different LLM
+they find answer and pass to a another prompt.
+
+Let's take a example 
+parsing a resume
+
+prompt 1:- Extract a skill from resume --> LLM call1
+prompt 2:- Extract JD skills --> LLM call2
+prompt 3:- Match the skill and generate the score --> LLM call3
+prompt 4:- if score>60 call HR else reject --> LLM call4
+
+This is call prompt chaining
+
+
+- Why it is used?
+1) Debugging
+2) Modularity
+3) Different models {for complex task --> good models, easy task --> normal models}
+4) Retry steps
+
+
+- mostly similar to ReAct?
+No, in ReAct we make a tools or function
+{we don't tell LLM what to do. they decide what tools i need to used.}
+
+In prompt chaining, devloper decide in which step what they can do. and what's the next steps
+
+```
