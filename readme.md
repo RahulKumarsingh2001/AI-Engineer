@@ -306,3 +306,32 @@ No, in ReAct we make a tools or function
 In prompt chaining, devloper decide in which step what they can do. and what's the next steps
 
 ```
+
+
+## Day 9
+### Streaming
+
+```
+when you search any thing in chatGPT then they generate some answer
+when they generate they give you line by line or chunk by chunk thats 
+called streaming.
+
+stream = false {They take a time and generate whole content first then send it to you}
+
+stream = true {They generate output chunk by chunk and send it to you}
+
+- why we do streaming? 
+Because we can send output in faster manner. 
+chunk by chunk output will be generated and we can see it. line by line
+so, basically our waiting time will be decrease.
+
+when your end-user is human --> then you can used streaming✅
+when your end-user is computer --> dont used streaming❌
+
+when we used streaming then code will generate line by line 
+if your user is computer or chatBot then we not used streaming because
+computer or chatBot make read data in JSON formate
+
+if we can used streaming then code come line by line and JSON will be break
+thats why we not user streaming when end-user is any chatBot or any llm models
+```
