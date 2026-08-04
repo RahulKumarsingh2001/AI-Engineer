@@ -39,8 +39,10 @@ class Resume(BaseModel):
 resume_schema = Resume.model_json_schema()
 
 
+
 class ChatRequest(BaseModel):
     question: str
+
 
 
 def ask_candidate(question: str, resume: Resume):
@@ -119,6 +121,8 @@ def parse_resume(resume_text):
     data = json.loads(raw_output)
     resume = Resume(**data)
     return resume
+
+
 
 #pdf extraction
 def read_pdf(file_path: Path):
