@@ -335,3 +335,14 @@ computer or chatBot make read data in JSON formate
 if we can used streaming then code come line by line and JSON will be break
 thats why we not user streaming when end-user is any chatBot or any llm models
 ```
+
+
+## Week 3
+## Day 10
+### RAG (Retrieval-Augmented Generation)
+
+```
+In simple language it means you can provide a extra information and they can take your extra information
+and read and they response back to you
+
+```
