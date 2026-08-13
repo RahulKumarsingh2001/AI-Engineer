@@ -346,3 +346,26 @@ In simple language it means you can provide a extra information and they can tak
 and read and they response back to you
 
 ```
+
+## Day 11 Embeddings {Retrieval}
+
+```
+No matter exect words
+
+- Why embedding come?
+In previous we can see retrieval concept and see how to search words by words. its very rigide search.
+computer not understand word they understand number
+
+So we can convert words in vector
+
+<Embedding> --> if you convert some word in based on some feature
+apple --> (sweet, crunchi) --> (8,7)
+cake --> (sweet, crunchi) --> (10,2)
+kurkura --> (sweet, crunchi) --> (1,9)
+
+if computer find difference between two words called cosine difference
+
+
+add extra dependency 
+uv add numpy sentence_transformers
+```
