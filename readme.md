@@ -365,7 +365,35 @@ kurkura --> (sweet, crunchi) --> (1,9)
 
 if computer find difference between two words called cosine difference
 
+Embedding is a smart process they can convert string to array and match the array is easy 
+
 
 add extra dependency 
 uv add numpy sentence_transformers
 ```
+
+
+## Day 14 Quadrant {Vector DB}
+
+```
+- Why vector DB?
+
+when your knowledge based will increase then some problem will come
+1) Time:- Embedding check line by line {basically they do linear search}
+2) Persistence:- when your machine off all vector will be loss 
+3) Memory
+
+
+Quadrant is a vector database
+   In sql we have a table, but in vector database we have a collections
+   table store rows, but collection store vector (Arrays)
+   In sql they store row1, row2 etc, but in vector we called point
+      and point store three things
+                     1> ID
+                     2> Actual vector:- 384 or any size of embedding those you can make 
+                     3> payload:- vector ka actual data {eg:- "hey how are you" }
+
+```
+
+
+
