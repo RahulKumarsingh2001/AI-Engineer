@@ -402,3 +402,90 @@ Quadrant is a vector database
 
 
 
+## Day 15
+### FILTERS and HNSW Quadrant
+
+```
+(HNSW) Hierarchical Navigable Small World
+It is a algo.
+
+- How to Quadrant search?
+
+when we have a {5 no of vector} and {one query} are there then one query check 5 no of all the vector
+and take a 5 sec
+But think, when {no of verctor are 10 crore} then they take how much time for search because they search
+in linear they take lots of time
+that's why HNSW will come
+
+HNSW tell don't search line by line or ramdomly first go to "as closed as possible" then start to search.
+
+For example:- 
+   you stay in:- Bengaluru
+   target location:- Delhi NCR chok
+
+   if you do normally linear search:
+      then you come outside your PG and asked its "Delhi NCR chok" then they told no
+      then you go different gali and asked its "Delhi NCR chok" then they told no
+      after few months or year you actually go to "Delhi NCR chok" then they told Yes
+
+   so, its very poor method
+
+   if you used HNSW
+      then first you go and asked where is "Bengaluru Airpot" then you Book a ticket and Go To Delhi
+      when you are in Delhi then you can start to asked its is "Delhi NCR chok" NO
+      after few time you find "Delhi NCR chok"
+
+
+so, In sort 
+   vectore have a internal connections, when we search(HNSW) anything then they check which vectore are 
+   closest to your query. then they start to search.
+
+
+
+Filter:-
+   item 1:
+      text -> "24 days of leaves"
+      category -> "vacation"
+      is_active -> true   
+
+   item 2:
+      text -> "8 hours of workings"
+      category -> "work_life_balance"
+      is_active -> true  
+
+   item 3:
+      text -> "16 days of leaves"
+      category -> "vacation"
+      is_active -> false        
+
+all three iteams are store in your vectore DB and Quadrant
+
+query:- How many days of leaves?
+-> they search with respect to these two items {category = vacation, is_active = true}  
+
+
+step 1:- first your collections are created {collection name:- Knowledge}
+step 2:- from first you need to know which types of field you can search {for eg:- gender, category, etc}
+
+- How to make a index.
+
+step 3:- Make a index 
+         Assume you have 6 vector in quadrant [[1,[],"....."],[2],[3],[4],[5],[6]];
+
+         Quadrant know at first which types of category present in which no of index
+
+         "vacation" -> 1,4
+         "work_life_balance" -> 2,3,5
+         True -> 1,3,5
+         False -> 2,4,6
+
+- How to used these filter.
+for using these filter you need three things
+   (1) must (you can write more then one conditions) 
+            {category -> "vacation", is_active -> true}  -> both are needed to be true
+   (2) must_not (you can write any condition then they check as !condition)
+   (3) should {category -> "vacation", is_active -> true} -> if any one condition are true then its true.
+   
+    
+
+```
