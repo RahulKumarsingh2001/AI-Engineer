@@ -13,4 +13,5 @@ source .venv/bin/activate
 
 for install groq
   uv add groq python-dotenv
+  uv add  qdrant-client sentence-transformers 
 

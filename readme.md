@@ -376,6 +376,11 @@ uv add numpy sentence_transformers
 ## Day 14 Quadrant {Vector DB}
 
 ```
+- Why embeddings?
+
+Retrieval function are faster.
+They convert string to array and we can easily match the array as compare to string.
+
 - Why vector DB?
 
 when your knowledge based will increase then some problem will come
@@ -386,12 +391,12 @@ when your knowledge based will increase then some problem will come
 
 Quadrant is a vector database
    In sql we have a table, but in vector database we have a collections
-   table store rows, but collection store vector (Arrays)
+   table store rows and cols, but collection store vector (Arrays)
    In sql they store row1, row2 etc, but in vector we called point
       and point store three things
                      1> ID
                      2> Actual vector:- 384 or any size of embedding those you can make 
-                     3> payload:- vector ka actual data {eg:- "hey how are you" }
+                     3> payload:- vector ka actual data {eg:- "hey, how are you" }
 
 ```
 
