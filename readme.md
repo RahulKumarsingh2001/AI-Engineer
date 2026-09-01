@@ -489,3 +489,152 @@ for using these filter you need three things
     
 
 ```
+
+
+
+## week 4
+## Day 16
+### RAG Evaluation
+
+```
+RAG Evaluation means your RAG working correct or not.
+
+What is RAG?
+
+
+   with help of Embedding
+            |
+Knowledge -------> vector --------> vectorDB ---
+                                                |
+                                                | --> VectorDB + vector => check the relevent chunk 
+   with help of Embedding                       |      jinka high match hai, jinka cosine similarity is high
+         |                                      |      wha vector {CONTEXT} banta hai.
+Query -----------> vector -----------------------                    |
+                                                                    {LLM} --> Answer
+
+
+
+So, In this whole arch. there are 3 places where error chances is high 
+1> Knowledge based will be wrong
+2> Maybe your context will be wrong
+3> or else your LLM generate a wrong answer
+
+
+
+Evaluation process
+
+step1: Make a RAG
+step2: make a {Golden Dataset}
+                 |__ write a {question} and {ground truth} based upon your knowledge based
+                        for eg:- {
+                                    question:- Akamai company give how many leaves?
+                                    ground truth:- 12 days
+                                 },
+
+step3: Layer by Layer checking:-
+      (i) context checking: 
+         Query ---> based upon your query Quadrant gives you top 3 vector
+            a. precision -> accuracy { (relevent/total)*100 } 
+
+            for eg:- query: Akamai company give how many leaves?
+
+                     from quadrant 3 vector are come
+                     (i) 12 days paid leaves
+                     (ii) Additional 3 days
+                     (iii) 50,000 salary
+
+                     (i) and (ii) are relevent informations but (iii) are not relevent
+
+                     (relevent/total)*100 => (2/3)*100 => 66% precision
+
+
+      (ii) Recall:- 
+         Query ---> Akamai company give how many leaves?
+         based upon this query your knowledge based have 2 answer
+         {
+            (i) 12 days paid leaves
+            (ii) Additional 3 days or sick leaves
+         }             
+
+         but you get a answer is 12 days leaves but you miss 3 days leaves and
+         your accuracy come 100% because
+         quadrant gives only 12 days leaves => (relevent/total)*100 => (1/1)*100 => 100%
+         but they miss { (ii) Additional 3 days or sick leaves } these line
+
+         In sort quadrant DB not give you relevent lines
+
+         So, here recall can do there work
+         they can check the actuall relevent line => 2
+         how many line quadrant gives => 1
+         (1/2)*100 => 50% recall 
+
+
+         So in these case precision => 100%
+                          recall => 50%
+         here quadrant do the mistake   
+
+
+      { Context checking + Recall } -> both are used for (Context Retrieval)
+
+
+step4: if your context will be correct and your precision and recall are also correct then
+       your LLM have a problem
+       there are 3 types of check to know your LLM is wrong
+
+      (i) Faith fullness
+      (ii) relevancy
+      (iii) correctness
+
+      (i) Faith fullness:
+         your LLM get a context:- 12 days of paid leaves
+         your Query:- how many leaves?
+         LLM as give a Answer:- 10 days of paid leaves
+
+         Your LLM not read context properly they Hallucinate 
+
+      (ii) correctness:
+         your LLM get a context:- 10 days of paid leaves (❌ wrong context)
+         your Query:- how many leaves?
+         LLM as give a Answer:- 10 days 
+
+         Not correct but your LLM are faithfull
+
+
+         ┌──────────────────────────────────────────────┐
+         │              Faithfull --> Incorrect         │
+         |              Context❌                       |
+         ├──────────────────────────────────────────────┤
+         │              unFaithhull --> correct         │
+         │                              (Hallucinate)   │
+         └──────────────────────────────────────────────┘
+
+
+      (iii) relevancy:
+             context:- Promotion happend in Akamine in November
+             question:- when Promotion is happend?
+             Answer:- { give a promotion defination }
+
+             this is not a wrong answer but this is not relevent to your question
+             So, that are also a LLM problem they not understand question or context
+
+
+
+Summary:
+         Precision -> low -> top k -> reduce
+                          -> threshold -> similirity score > 0.5
+
+         recall -> quadrant gives a result/total relevent line => 1/2 => 50% recall
+         how to increase -> increase your top k value
+                         -> thresold ko kaam kar do >0.9
+
+
+         faithfull -> write a good System prompt tell no hallucinate
+
+         correct nhi hai -> correct knowledge based
+
+         relevent -> correct a system prompt                                               
+
+
+
+```
+
