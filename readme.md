@@ -638,3 +638,44 @@ Summary:
 
 ```
 
+
+## Day 17
+### First AI agent 
+
+```
+Agent = LLM + functions/api
+
+for websearch we can call a API called Tavily
+
+Agent mens you can used a LLM and provide some tools 
+
+- How to call a tools and tell the LLM?
+
+step1: write a function(for tools)
+
+step2: make a Avalable_tools (tell the LLM you have this avaliable tools to used)
+         Avalable_tools = {
+            "web_search": web_search,
+            "calculate": calculate
+         }
+
+step3: Make a tools or JSON object type where you can define all the things
+      eg:- tools = []
+           -> type = function
+           -> name = web_search
+           -> description = kab used karna hai and kaise karna hai or kya hai ye 
+           -> parameter = kya leta hai parameter mein 
+                  -> query
+                  -> parameter_description
+
+step4: give instruction to your Agent through system prompt
+
+         grok.chat.completions.create(
+            message, models,
+            tools = tools,
+            tools_choice = auto 
+         );
+
+
+
+```
