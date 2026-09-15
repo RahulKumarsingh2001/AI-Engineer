@@ -679,3 +679,31 @@ step4: give instruction to your Agent through system prompt
 
 
 ```
+
+
+## Day 18
+### LANG GRAPH 
+
+```
+When you make a LARGE AI AGENT and they can do variouse types of task and few task are 
+dependent to each other then you not able to make with help of prompting 
+you need some tool to manage all the functionality so you can used LANG GRAPH
+
+LANG GRAPH behave like a Management Service
+
+LANG GRAPH give a structured way to make AGENTIC SYSTEM
+In this there are 3 important things are there
+1) state
+2) Nodes
+3) Edges
+
+<i> state:- they know how many tools are there. which tools are working right now,
+            any error is come or not. they know each and every things 
+
+
+<ii> Nodes:- all function or tools are a different nodes
+
+<iii> Edges:- nodes ka bich mein connections
+
+
+```
