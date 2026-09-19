@@ -745,3 +745,88 @@ just a helping function.
          return "finish"    // call finish function
 
 ```
+
+
+## Day 20
+### RESTAURANT AI AGENT -> LLM + TOOLS
+
+```
+these 3 function are there in your project
+1> take_order
+2> cook
+3> serve
+
+
+ Work Flow
+
+
+                                      ┌───────────────────────────────┐
+                                      │             MENU              │
+                                      │                               │
+                                      │   Dish / Price / Quantity     │
+                                      └───────────────────────────────┘
+                                                     │
+                                                     │
+                                                     │
+┌──────────┐       ┌─────────┐       ┌──────────────────┐       ┌────────┐       ┌──────────┐       ┌────────────────┐
+│   USER   │ ----> │   LLM   │ ----> │   take_order     │ ----> │  cook  │ ----> │  serve() │ ----> │  generate Bill │
+└──────────┘       └─────────┘       └──────────────────┘  YES  └────────┘  YES  └──────────┘  YES  └────────────────┘
+     │                  │                       │                    │                  │
+     │                  │                       │                    │                  │
+   orders          Dish, Quantity               │                    │                  │
+                                                │                    │                  │
+                                                │ NO                 │ NO               │ NO
+                                                │                    │                  │
+                                                ▼                    ▼                  │
+                                      ┌──────────────────┐   ┌──────────────────────┐   │
+                                      │ Handle Cases     │   │ Go back to USER      │   │
+                                      │                  │   │ and tell the problem │   │
+                                      │ 1. Order not     │   │ and take a different │   │
+                                      │    present       │   │ order                │   │
+                                      │    → 3 chances   │   └──────────────────────┘  │
+                                      │                  │             │               │
+                                      │ 2. Quantity low  │             │               │
+                                      │    → Option 1:   │             │               │
+                                      │      Change food │             │               │
+                                      │    → Option 2:   │             │               │
+                                      │      Change qty  │             │               │
+                                      └──────────────────┘             │               │
+                                                                       │               │
+                                                                       └───────┐       │
+                                                                               │       │
+                                                                               ▼       │
+                                                                            ┌──────┐   │
+                                                                            │ cook │◄──┘
+                                                                            └──────┘
+
+
+
+  
+
+
+
+                         <--------------------------- NO ---------------------------
+                         |                                                         |
+                         |                                                         |
+┌─────────┐ query  ┌─────────┐        ┌───────────────┐        ┌──────────┐        ┌─────────┐        ┌───────┐
+│  Human  │ -----> │   LLM   │ -----> │   take_order  │ -----> │   cook   │ -----> │  serve  │ -----> │  END  │
+└─────────┘        └─────────┘        └───────────────┘   YES  └──────────┘   YES  └─────────┘   YES  └───────┘
+                       │ ^                   │                  ^                    │
+                       │ |                   │                  │                    │
+                       │ |                   │                  │                    │
+                       │ |                   │                  └────── NO ──────────┘
+                       │ |                   │
+                       │ |                   │
+                       │ |________NO_________|
+                       │                                                
+                       │                                                
+                       │     first tool call                            
+                       │                                                
+                       │  if anyone asks a different query              
+                       │  like: "give me a function of 2 sum"           
+                       │  then directly program going to be             
+                       │                                                
+                       └───────────────────────────────────────────────> END               
+                 
+
+```
