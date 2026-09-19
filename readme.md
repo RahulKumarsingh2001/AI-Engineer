@@ -701,9 +701,47 @@ In this there are 3 important things are there
             any error is come or not. they know each and every things 
 
 
-<ii> Nodes:- all function or tools are a different nodes
+<ii> Nodes:- all function or tools those are working on a project are called nodes,
 
 <iii> Edges:- nodes ka bich mein connections
 
+Edges are also few type 
+(i) direct edges
+(ii) conditional edges
+
+
+```
+
+
+## Day 19
+### LANGGRAPH IMPLEMENTATION
+
+```
+state:-
+In python state are Dict {Key -> value} pairs
+   class State(TypeDict):
+      number: int
+
+
+node:- 
+node are a function thats take a state as a argument. and return a Dict
+   def double(state: State) -> return Dict
+      boardnum = state["number"]  // read the value those are writen in a state
+      newnumber = boardnum * 2
+      return{ "number": newnumber }
+
+   def finish(state: State) -> return Dict
+      boardnum = state["number"]  // read the value those are writen in a state
+      printf(boardnum)
+      return{ "number": newnumber }   
+
+Edge:-
+then write a general function this function was not calculated as a node this is 
+just a helping function. 
+   def decision(state: State) -> return String   // they return any thing
+      if(state["number]>100):
+         return "double"   // call double function
+      else:
+         return "finish"    // call finish function
 
 ```
