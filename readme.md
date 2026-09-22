@@ -830,3 +830,50 @@ these 3 function are there in your project
                  
 
 ```
+
+
+
+## Week 5
+## Day 21
+### Multi Agent-systems
+
+```
+Single Agents Systems :- one LLM can do all the task with help of calling different tools
+
+             |-----> Tool1(web search)
+      LLM -- |-----> Tool2(Graph)
+             |-----> Tool3(Gmail)
+
+
+
+Multi agents systems :- different LLM are present for different tasks 
+
+            Director LLM   ----> it can decide which LLM can be call for which tasks.
+                 |
+        ---------------------           
+       |          |          |
+      LLM1       LLM2      LLM3
+       |          |          |
+       |          |          |
+   (web serch)  (Graph)    (Gmail)
+
+
+
+why we used different LLM ??
+   -> there are no needed actually
+   -> there have some advantage or disadvantage for making multi agents
+
+   Advantage
+      -> if you needed to doing a different different works 
+      -> context window are balanced if task will properly distributed
+
+   DisAdvantage
+      -> LLMs calling going to increase
+      -> cost will be increase
+
+
+In industry says first you build single agent system means 
+one LLM + all tools ---> if result are more the 85% accuracy then it good✅
+if not then you can move towards the multi agents systems.
+
+```
