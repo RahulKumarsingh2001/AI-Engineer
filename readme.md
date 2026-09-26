@@ -877,3 +877,12 @@ one LLM + all tools ---> if result are more the 85% accuracy then it good✅
 if not then you can move towards the multi agents systems.
 
 ```
+
+
+
+## Day 22
+### Multi Agent Implementations
+
+```
+
+```
