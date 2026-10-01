@@ -948,7 +948,7 @@ level3: single test
 
 Company used code proctoring
                |
-               ---> can tell every thing "kha se cheat kiya ho..."
+               ---> it can tell every thing "kha se cheat kiya ho..."
 
 
 
